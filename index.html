@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy 3rd Anniversary ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to bottom, #ffd1dc, #ffe6eb);
+      text-align: center;
+      overflow-x: hidden;
+      position: relative;
+    }
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3em;
+      margin-top: 40px;
+      color: #d6336c;
+      animation: fadeIn 2s ease;
+    }
+    .message {
+      font-size: 1.2em;
+      margin: 20px auto;
+      width: 80%;
+      max-width: 600px;
+      animation: fadeIn 3s ease;
+    }
+    .pickup-line {
+      font-size: 1.5em;
+      margin: 30px auto;
+      width: 80%;
+      color: #6a1b9a;
+      animation: pulse 2s infinite;
+    }
+    .proposal {
+      margin: 40px auto;
+      font-size: 1.8em;
+      color: #c2185b;
+    }
+    .buttons {
+      margin-top: 30px;
+      position: relative;
+    }
+    .btn {
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    #yesBtn {
+      background-color: #ff4081;
+      color: white;
+      font-size: 22px;
+      margin: 10px;
+      animation: heartBeat 1.5s infinite;
+    }
+    #noBtn {
+      background-color: #fff;
+      color: #ff4081;
+      border: 2px solid #ff4081;
+      margin: 10px;
+      position: absolute;
+    }
+    .confetti {
+      font-size: 2em;
+      animation: floatUp 2s ease-in-out infinite;
+      color: #ff80ab;
+      display: none;
+    }
+
+    #surpriseBtn {
+      margin-top: 40px;
+      padding: 12px 25px;
+      background-color: #c51162;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #surpriseImage {
+      display: none;
+      margin-top: 30px;
+      max-width: 90%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0px 0px 20px #ff80ab;
+     
+    }
+
+    .heart {
+      position: fixed;
+      top: -50px;
+      font-size: 24px;
+      color: #ff4081;
+      animation: fall 5s linear infinite;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    @keyframes heartBeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Happy 3rd Anniversary, My Love! 💖</h1>
+  <div class="message">
+    We've walked through countless memories together, and every moment with you feels like a dream. Thank you for being my everything. 💫
+  </div>
+  <div class="pickup-line">
+    Are you made of sugar? Because every time I see you, life gets sweeter! 🍬
+  </div>
+  <div class="proposal">
+    So, my princess... Will you keep loving me forever and ever? 💍
+  </div>
+  <div class="buttons">
+    <button class="btn" id="yesBtn">Forever Yours 💖</button>
+    <button class="btn" id="noBtn">Not Yet 😜</button>
+  </div>
+
+  <button id="surpriseBtn">🎁 Click For a Surprise!</button>
+  <div>
+    <img id="surpriseImage" src="ghibli-vaani.png" alt="Our Ghibli Magic">
+  </div>
+
+  <div class="confetti" id="confetti">🎉🎉🎉</div>
+
+  <script>
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const confetti = document.getElementById("confetti");
+    const surpriseBtn = document.getElementById("surpriseBtn");
+    const surpriseImage = document.getElementById("surpriseImage");
+
+    let moveCount = 0;
+
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.floor(Math.random() * 300);
+      const y = Math.floor(Math.random() * 200);
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+      moveCount++;
+      if (moveCount > 2) {
+        noBtn.textContent = "Are you sure? 💔";
+      }
+      if (moveCount > 4) {
+        noBtn.textContent = "Say Yes na please! 😘";
+      }
+    });
+
+    yesBtn.addEventListener("click", () => {
+      confetti.style.display = "block";
+      confetti.textContent = "You said YES! 💕💍 I love you endlessly 💫";
+      yesBtn.disabled = true;
+      noBtn.disabled = true;
+    });
+
+    surpriseBtn.addEventListener("click", () => {
+      surpriseImage.style.display = "block";
+    });
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerText = "💖";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 10 + 20 + "px";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(createHeart, 300);
+  </script>
+</body>
+</html>
