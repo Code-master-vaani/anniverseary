@@ -177,11 +177,23 @@
       noBtn.style.left = `${x}px`;
       noBtn.style.top = `${y}px`;
       moveCount++;
-      if (moveCount > 2) {
+    if (moveCount > 1) {
         noBtn.textContent = "Are you sure? 💔";
       }
-      if (moveCount > 4) {
+      if (moveCount > 2) {
         noBtn.textContent = "Say Yes na please! 😘";
+      }
+      if (moveCount > 3) {
+        noBtn.textContent = "Don't break my heart 😢";
+      }
+      if (moveCount > 4) {
+        noBtn.textContent = "Pretty please? 🥺";
+      }
+      if (moveCount > 5) {
+        noBtn.textContent = "I'll give you cookies 🍪" ;
+      }
+      if (moveCount > 6) {
+        noBtn.textContent = "I’ll love you forever 😍";
       }
     });
 
